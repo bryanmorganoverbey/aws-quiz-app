@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.option {
+    padding: 16;
+    margin: 4 0;
+    border-radius: 8;
+    background-color: #f3f4f6;
+    color: #1f2937;
+}
+
+.option-selected {
+    background-color: #60a5fa;
+    color: white;
+}
+
+.option-correct {
+    background-color: #86efac;
+    color: #065f46;
+}
+
+.option-incorrect {
+    background-color: #fecaca;
+    color: #991b1b;
+}
+
+.bg-gray-100 {
+    background-color: #f3f4f6;
+}
+
+.text-green-600 {
+    color: #059669;
+}
+
+.text-red-600 {
+    color: #dc2626;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.text-gray-700 {
+    color: #374151;
+}
+
+.rounded {
+    border-radius: 8;
+}
+
+ListView {
+    separator-color: transparent;
+    margin: 8 0;
+}
