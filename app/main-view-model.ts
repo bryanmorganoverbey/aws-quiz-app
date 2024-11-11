@@ -27,32 +27,32 @@ export class MainViewModel extends Observable {
         if (this.quizState.answered) return;
         const index = args.index;
         this.quizService.selectAnswer(index);
-        this.notifyPropertyChange('quizState');
-        this.notifyPropertyChange('currentQuestion');
+        this.notifyPropertyChange('quizState', this.quizState);
+        this.notifyPropertyChange('currentQuestion', this.currentQuestion);
     }
 
     onNextQuestion() {
         this.quizService.nextQuestion();
-        this.notifyPropertyChange('currentQuestion');
-        this.notifyPropertyChange('quizState');
-        this.notifyPropertyChange('questionCounter');
+        this.notifyPropertyChange('currentQuestion', this.currentQuestion);
+        this.notifyPropertyChange('quizState', this.quizState);
+        this.notifyPropertyChange('questionCounter', this.questionCounter);
     }
 
     getOptionClass(index: number): string {
         const baseClass = 'option ';
-        
+
         if (!this.quizState.answered) {
             return baseClass;
         }
-        
+
         if (index === this.currentQuestion.correctAnswer) {
             return baseClass + 'option-correct';
         }
-        
+
         if (index === this.quizState.selectedAnswer && index !== this.currentQuestion.correctAnswer) {
             return baseClass + 'option-incorrect';
         }
-        
+
         return baseClass;
     }
 }

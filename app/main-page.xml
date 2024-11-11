@@ -1,38 +1,38 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
     <ActionBar title="AWS Solutions Architect Pro Quiz" />
-    
+
     <ScrollView>
         <StackLayout class="p-4">
             <!-- Question Counter -->
             <Label text="{{ questionCounter }}" class="text-gray-600 mb-2" />
-            
+
             <!-- Question Text -->
             <Label text="{{ currentQuestion.text }}" textWrap="true" class="text-lg font-bold mb-4" />
-            
+
             <!-- Answer Options -->
             <ListView items="{{ currentQuestion.options }}" class="mb-4" itemTap="{{ onAnswerSelect }}" height="auto" separatorColor="transparent">
                 <ListView.itemTemplate>
                     <GridLayout class="p-2">
-                        <Label text="{{ $value }}"
-                               class="{{ $parent.getOptionClass($index) }}"
-                               textWrap="true"
-                               padding="16" />
+                        <Label text="{{ $value ? $value : '' }}"
+                              class="{{ $parent.getOptionClass($index) }}"
+                              textWrap="true"
+                              padding="16" />
                     </GridLayout>
                 </ListView.itemTemplate>
             </ListView>
 
             <!-- Explanation -->
             <StackLayout visibility="{{ quizState.answered ? 'visible' : 'collapsed' }}" class="p-4 bg-gray-100 rounded">
-                <Label text="{{ quizState.isCorrect ? '✓ Correct!' : '✗ Incorrect' }}" 
-                       class="{{ quizState.isCorrect ? 'text-green-600' : 'text-red-600' }} font-bold mb-2" />
+                <Label text="{{ quizState.isCorrect ? '✓ Correct!' : '✗ Incorrect' }}"
+                      class="{{ quizState.isCorrect ? 'text-green-600' : 'text-red-600' }} font-bold mb-2" />
                 <Label text="Explanation:" class="font-bold mb-2" />
                 <Label text="{{ currentQuestion.explanation }}" textWrap="true" class="text-gray-700" />
             </StackLayout>
 
             <!-- Next Question Button -->
-            <Button text="Next Question" tap="{{ onNextQuestion }}" 
+            <Button text="Next Question" tap="{{ onNextQuestion }}"
                     visibility="{{ quizState.answered ? 'visible' : 'collapsed' }}"
-                    class="-primary mt-4" />
+                    class="mt-4" />
         </StackLayout>
     </ScrollView>
 </Page>

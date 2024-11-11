@@ -35,7 +35,7 @@ export class QuizService extends Observable {
             selectedAnswer: index,
             isCorrect: index === this.currentQuestion.correctAnswer
         };
-        this.notifyPropertyChange('quizState');
+        this.notifyPropertyChange('quizState', this._quizState);
     }
 
     nextQuestion() {
@@ -46,8 +46,8 @@ export class QuizService extends Observable {
                 selectedAnswer: null,
                 isCorrect: false
             };
-            this.notifyPropertyChange('currentQuestion');
-            this.notifyPropertyChange('quizState');
+            this.notifyPropertyChange('currentQuestion', this.currentQuestion);
+            this.notifyPropertyChange('quizState', this._quizState);
         }
     }
 }
