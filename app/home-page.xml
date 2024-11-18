@@ -1,0 +1,7 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Home" />
+    <StackLayout class="p-4">
+        <Label text="Welcome to the AWS Quiz App!" class="text-lg font-bold mb-4" />
+        <Button text="Start Quiz" tap="{{ onStartQuiz }}" class="btn-primary" />
+    </StackLayout>
+</Page>

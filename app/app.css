@@ -3,53 +3,64 @@
 @tailwind utilities;
 
 .option {
-    padding: 16;
-    margin: 4 0;
-    border-radius: 8;
-    background-color: #f3f4f6;
-    color: #1f2937;
+  padding: 16;
+  margin: 4 0;
+  border-radius: 8;
+  background-color: #f3f4f6;
+  color: #1f2937;
 }
 
 .option-selected {
-    background-color: #60a5fa;
-    color: white;
+  background-color: #60a5fa !important;
+  color: white;
 }
 
 .option-correct {
-    background-color: #86efac;
-    color: #065f46;
+  background-color: #86efac !important;
+  color: #065f46;
 }
 
 .option-incorrect {
-    background-color: #fecaca;
-    color: #991b1b;
+  background-color: #fecaca !important;
+  color: #991b1b;
 }
 
-.bg-gray-100 {
-    background-color: #f3f4f6;
-}
+/* .bg-gray-100 {
+  background-color: #f3f4f6;
+} */
 
 .text-green-600 {
-    color: #059669;
+  color: #059669;
 }
 
 .text-red-600 {
-    color: #dc2626;
+  color: #dc2626;
 }
 
 .text-gray-600 {
-    color: #4b5563;
+  color: #4b5563;
 }
 
 .text-gray-700 {
-    color: #374151;
+  color: #374151;
+}
+
+.text-black {
+  color: #171717;
 }
 
 .rounded {
-    border-radius: 8;
+  border-radius: 8;
 }
 
 ListView {
-    separator-color: transparent;
-    margin: 8 0;
+  margin: 8 0;
+}
+
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12;
+  border-radius: 8;
+  font-size: 16;
 }

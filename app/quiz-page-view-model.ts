@@ -1,6 +1,6 @@
 import { Observable } from '@nativescript/core';
 import { QuizService } from './services/quiz.service';
-import { EventData } from '@nativescript/core';
+import { EventData, Frame } from '@nativescript/core';
 import { ItemEventData } from '@nativescript/core';
 
 export class MainViewModel extends Observable {
@@ -23,6 +23,10 @@ export class MainViewModel extends Observable {
         return `Question ${this.quizService.currentQuestionNumber} of ${this.quizService.totalQuestions}`;
     }
 
+    get isLastQuestion(): boolean {
+        return this.quizService.currentQuestionNumber === this.quizService.totalQuestions;
+    }
+
     onAnswerSelect(args: ItemEventData) {
         if (this.quizState.answered) return;
         const index = args.index;
@@ -32,10 +36,15 @@ export class MainViewModel extends Observable {
     }
 
     onNextQuestion() {
-        this.quizService.nextQuestion();
-        this.notifyPropertyChange('currentQuestion', this.currentQuestion);
-        this.notifyPropertyChange('quizState', this.quizState);
-        this.notifyPropertyChange('questionCounter', this.questionCounter);
+        if (this.quizService.currentQuestionNumber < this.quizService.totalQuestions) {
+            this.quizService.nextQuestion();
+            this.notifyPropertyChange('currentQuestion', this.currentQuestion);
+            this.notifyPropertyChange('quizState', this.quizState);
+            this.notifyPropertyChange('questionCounter', this.questionCounter);
+        } else {
+            // Navigate back to Home Screen
+            Frame.topmost().navigate("home-page");
+        }
     }
 
     getOptionClass(index: number): string {

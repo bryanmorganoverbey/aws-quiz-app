@@ -22,15 +22,15 @@
             </ListView>
 
             <!-- Explanation -->
-            <StackLayout visibility="{{ quizState.answered ? 'visible' : 'collapsed' }}" class="p-4 bg-gray-100 rounded">
+            <StackLayout visibility="{{ quizState.answered ? 'visible' : 'collapsed' }}">
                 <Label text="{{ quizState.isCorrect ? '✓ Correct!' : '✗ Incorrect' }}"
                       class="{{ quizState.isCorrect ? 'text-green-600' : 'text-red-600' }} font-bold mb-2" />
                 <Label text="Explanation:" class="font-bold mb-2" />
-                <Label text="{{ currentQuestion.explanation }}" textWrap="true" class="text-gray-700" />
+                <Label text="{{ currentQuestion.explanation }}" textWrap="true" class="text-black bg-gray-100 rounded p-4" />
             </StackLayout>
 
             <!-- Next Question Button -->
-            <Button text="Next Question" tap="{{ onNextQuestion }}"
+            <Button text="{{ isLastQuestion ? 'Finish Quiz' : 'Next Question' }}" tap="{{ onNextQuestion }}"
                     visibility="{{ quizState.answered ? 'visible' : 'collapsed' }}"
                     class="mt-4" />
         </StackLayout>
