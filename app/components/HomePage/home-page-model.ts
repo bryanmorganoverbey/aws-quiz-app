@@ -3,10 +3,9 @@ import { Frame } from '@nativescript/core';
 export class HomePageModel extends Observable {
   constructor() {
     super();
-
   }
 
   onStartQuiz() {
-    Frame.topmost().navigate("quiz-page");
+    Frame.topmost().navigate("/components/QuizPage/quiz-page");
   }
 }

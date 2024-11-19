@@ -1,9 +1,9 @@
 import { Observable } from '@nativescript/core';
-import { QuizService } from './services/quiz.service';
+import { QuizService } from '../../services/quiz.service';
 import { EventData, Frame } from '@nativescript/core';
 import { ItemEventData } from '@nativescript/core';
 
-export class MainViewModel extends Observable {
+export class QuizPageView extends Observable {
   private quizService: QuizService;
 
     constructor() {

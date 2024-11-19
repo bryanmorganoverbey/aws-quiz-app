@@ -1,1 +1,1 @@
-<Frame defaultPage="home-page" />
+<Frame defaultPage="/components/HomePage/home-page" />
