@@ -4,7 +4,7 @@ import { EventData, Frame } from '@nativescript/core';
 import { ItemEventData } from '@nativescript/core';
 
 export class MainViewModel extends Observable {
-    private quizService: QuizService;
+  private quizService: QuizService;
 
     constructor() {
         super();
@@ -27,12 +27,17 @@ export class MainViewModel extends Observable {
         return this.quizService.currentQuestionNumber === this.quizService.totalQuestions;
     }
 
-    onAnswerSelect(args: ItemEventData) {
-        if (this.quizState.answered) return;
+    get selectedExplanation(): string {
+        return this.quizService.currentQuestion.explanations[this.quizState.selectedAnswer];
+    }
+
+  onAnswerSelect(args: ItemEventData) {
+      console.log('onAnswerSelect', args.index);
         const index = args.index;
         this.quizService.selectAnswer(index);
         this.notifyPropertyChange('quizState', this.quizState);
         this.notifyPropertyChange('currentQuestion', this.currentQuestion);
+        this.notifyPropertyChange('selectedExplanation', this.selectedExplanation);
     }
 
     onNextQuestion() {
@@ -41,6 +46,7 @@ export class MainViewModel extends Observable {
             this.notifyPropertyChange('currentQuestion', this.currentQuestion);
             this.notifyPropertyChange('quizState', this.quizState);
             this.notifyPropertyChange('questionCounter', this.questionCounter);
+
         } else {
             // Navigate back to Home Screen
             Frame.topmost().navigate("home-page");
@@ -64,4 +70,6 @@ export class MainViewModel extends Observable {
 
         return baseClass;
     }
+
+
 }

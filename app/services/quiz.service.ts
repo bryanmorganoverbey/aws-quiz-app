@@ -28,12 +28,11 @@ export class QuizService extends Observable {
     }
 
     selectAnswer(index: number) {
-        if (this._quizState.answered) return;
-
+        const isCorrect = index === this.currentQuestion.correctAnswer;
         this._quizState = {
             answered: true,
             selectedAnswer: index,
-            isCorrect: index === this.currentQuestion.correctAnswer
+            isCorrect: isCorrect
         };
         this.notifyPropertyChange('quizState', this._quizState);
     }

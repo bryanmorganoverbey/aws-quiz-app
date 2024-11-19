@@ -60,7 +60,9 @@ ListView {
 .btn-primary {
   background-color: #3b82f6;
   color: white;
-  padding: 12;
-  border-radius: 8;
-  font-size: 16;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
 }
